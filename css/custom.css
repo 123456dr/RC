@@ -2,3 +2,36 @@ body {
     background-color: #000000; /* 黑色背景 */
     color: #ffffff; /* 白色文字 */
   }
+
+  #back-to-top {
+    right: 20px !important; /* 調整距離右邊的距離 */
+    bottom: 20px !important; /* 調整距離底部的距離 */
+    border-radius: 50%; /* 圓形按鈕 */
+    background-color: #000; /* 按鈕背景顏色 */
+    color: #fff; /* 按鈕文字顏色 */
+    width: 50px; /* 按鈕寬度 */
+    height: 50px; /* 按鈕高度 */
+    text-align: center;
+    line-height: 50px; /* 垂直居中 */
+    font-size: 20px; /* 字體大小 */
+  }
+  
+  #back-to-top:hover {
+    background-color: #555; /* 懸停時的背景顏色 */
+  }
+  
+
+  .floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0562c6;
+    color: #6ff3f7;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.floating-button:hover {
+    background-color: #0b4b8f;
+}

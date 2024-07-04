@@ -282,6 +282,7 @@ let studyTime = 60 * 60; // 學習時間設置為 60 分鐘
 let currentLoop = 1;
 let repetitions = 1;
 let timerInterval;
+let isPaused = false;
 
 // 在頁面載入時恢復狀態
 document.addEventListener("DOMContentLoaded", function() {
@@ -342,16 +343,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function startTimer() {
-    repetitions = parseInt(document.getElementById("repetitions").value);
-    currentLoop = 1;
-    studyTime = 60 * 60; // 重置學習時間為 60 分鐘
+    if (!isPaused) {
+        repetitions = parseInt(document.getElementById("repetitions").value);
+        currentLoop = 1;
+        studyTime = 60 * 60; // 重置學習時間為 60 分鐘
+        // 保存重複次數和當前迴圈數到本地存儲
+        localStorage.setItem("repetitions", repetitions);
+        localStorage.setItem("currentLoop", currentLoop);
+        localStorage.setItem("studyTime", studyTime);
+    }
+    isPaused = false;
     updateTimer(); // 立即更新計時器顯示
     timerInterval = setInterval(updateTimer, 1000); // 每秒更新一次
-
-    // 保存重複次數和當前迴圈數到本地存儲
-    localStorage.setItem("repetitions", repetitions);
-    localStorage.setItem("currentLoop", currentLoop);
-    localStorage.setItem("studyTime", studyTime);
 }
 
 function updateTimer() {
@@ -388,6 +391,7 @@ function updateTimer() {
 
 function pauseTimer() {
     clearInterval(timerInterval);
+    isPaused = true;
 }
 
 function resetTimer() {
@@ -396,6 +400,7 @@ function resetTimer() {
     document.getElementById("timer").innerText = "--";
     localStorage.removeItem("studyTime");
     localStorage.removeItem("currentLoop");
+    isPaused = false;
 }
 
 function saveCustomContent() {

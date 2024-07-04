@@ -1,10 +1,47 @@
+body {
+  background-color: #000; /* 黑色背景 */
+  color: #fff; /* 白色文字 */
+}
 .post-preview {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
 }
 .index .post-body {
   text-align: center;
+}
+@media (max-width: 768px) {
+  .site-brand-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff; /* 根據需要調整背景顏色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 添加陰影以區分導航欄 */
+  }
+  .site-meta {
+    padding: 10px; /* 根據需要調整內邊距 */
+  }
+  .site-nav-toggle {
+    display: flex;
+    align-items: center; /* 垂直置中 */
+  }
+  .site-nav {
+    display: none;
+    position: fixed;
+    top: 60px; /* 根據導航切換按鈕的高度調整 */
+    width: 100%;
+    z-index: 999;
+    background-color: #222; /* 展開後的背景顏色 */
+    padding: 10px 0; /* 調整內邊距 */
+  }
+  .site-nav.active {
+    display: block !important;
+v
+  }
+  .main-inner {
+    padding-top: 60px; /* 根據導航欄高度調整 */
+  }
 }
 :root {
   --body-bg-color: #282828;
@@ -1207,7 +1244,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b15b96;
+  background: #7fff7c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1453,6 +1490,7 @@ pre .javascript .function {
   color: #ffff00;
   display: inline-block;
   margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .powered-by,
 .theme-info {
