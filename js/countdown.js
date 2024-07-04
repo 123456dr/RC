@@ -276,7 +276,7 @@ function saveContent() {
 }
 */
 
-
+var countdownTitle = document.getElementById('countdown-title');
 
 let studyTime = 60 * 60; // 學習時間設置為 60 分鐘
 let currentLoop = 1;
@@ -343,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function startTimer() {
+    
     if (!isPaused && localStorage.getItem("studyTime")<=0) {
         repetitions = parseInt(document.getElementById("repetitions").value);
         currentLoop = 1;
@@ -355,6 +356,9 @@ function startTimer() {
     isPaused = false;
     updateTimer(); // 立即更新計時器顯示
     timerInterval = setInterval(updateTimer, 1000); // 每秒更新一次
+    if (countdownTitle) {
+        countdownTitle.style.display = 'none';
+    }
 }
 
 function updateTimer() {
@@ -401,6 +405,10 @@ function resetTimer() {
     localStorage.removeItem("studyTime");
     localStorage.removeItem("currentLoop");
     isPaused = false;
+    if (countdownTitle) {
+        countdownTitle.style.display = 'block';
+    }
+    
 }
 
 function saveCustomContent() {

@@ -35,3 +35,10 @@ body {
 .floating-button:hover {
     background-color: #0b4b8f;
 }
+
+
+.post-toc .nav .nav-child { display: block;}
+
+.post-toc ol {
+  font-size: 13px;
+}
