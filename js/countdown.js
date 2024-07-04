@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function startTimer() {
-    if (!isPaused) {
+    if (!isPaused && localStorage.getItem("studyTime")<=0) {
         repetitions = parseInt(document.getElementById("repetitions").value);
         currentLoop = 1;
         studyTime = 60 * 60; // 重置學習時間為 60 分鐘
@@ -390,8 +390,8 @@ function updateTimer() {
 }
 
 function pauseTimer() {
-    clearInterval(timerInterval);
     isPaused = true;
+    clearInterval(timerInterval);
 }
 
 function resetTimer() {
