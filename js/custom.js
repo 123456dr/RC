@@ -9,15 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 在頁面載入時檢查屏幕寬度
 function checkScreenWidth() {
-  if (window.innerWidth > 768) {
-    // 如果屏幕寬度大於768px，顯示原本的主選單
-    document.querySelector('.site-nav').style.display = 'block';
-    document.querySelector('.site-nav-toggle').style.display = 'none'; // 隱藏切換按鈕
-  } else {
+   
     // 否則隱藏主選單，顯示切換按鈕
     document.querySelector('.site-nav').style.display = 'none';
     document.querySelector('.site-nav-toggle').style.display = 'block';
-  }
+  
 }
 
 // 綁定窗口大小變化事件
