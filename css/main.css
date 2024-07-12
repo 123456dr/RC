@@ -10,7 +10,10 @@ body {
 .index .post-body {
   text-align: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+  .site-subtitle {
+    display: none;
+  }
   .site-brand-container {
     position: fixed;
     top: 0;
@@ -1244,7 +1247,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff1fc6;
+  background: #b1c49f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
