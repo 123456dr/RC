@@ -38,7 +38,7 @@
 <meta property="og:description" content="擔任 高一上 &amp; 高一下 [資訊研究社-社長]">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-05-31T01:49:11.000Z">
-<meta property="article:modified_time" content="2024-07-04T07:28:58.340Z">
+<meta property="article:modified_time" content="2024-08-01T15:04:37.175Z">
 <meta property="article:author" content="RaeChu">
 <meta property="article:tag" content="RC">
 <meta name="twitter:card" content="summary">
@@ -252,7 +252,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-04 15:28:58" itemprop="dateModified" datetime="2024-07-04T15:28:58+08:00">2024-07-04</time>
+                <time title="修改時間：2024-08-01 23:04:37" itemprop="dateModified" datetime="2024-08-01T23:04:37+08:00">2024-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,11 +278,230 @@
         <p>擔任 高一上 &amp; 高一下 [資訊研究社-社長]</p>
 <span id="more"></span>
 
-<blockquote>
-<p><a href="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf" target="_blank">手機版點此查看 PDF</a></p>
-</blockquote>
-<iframe src="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf#zoom=50" width="80%" height="600px"></iframe>
+<!--
+<a href="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf" target="_blank">手機版點此查看 PDF</a>
 
+<iframe src="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf#zoom=50" width="80%" height="600px"></iframe>
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* 導入 Google 字體 */
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 20px;
+        font-family: 'Nunito', sans-serif; /* 使用可愛的字體 */
+    }
+        .card-header {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav-tabs {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            white-space: nowrap; /* 防止按鈕換行 */
+            overflow-x: auto; /* 當內容超出容器寬度時顯示滾動條 */
+            overflow-y: hidden; /* 隱藏垂直滾動條 */
+        }
+        .nav-tabs .nav-item {
+            display: inline-block;
+            margin-right: 5px; /* 調整按鈕間距 */
+        }
+        .nav-tabs .nav-link {
+            display: inline-block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #007bff;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif; /* 使用可愛字體 */
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-body iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        .card-body a {
+            color: #007bff;
+            font-family: 'Poppins', sans-serif; /* 使用可愛字體 */
+        }
+        .card-body a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+  <style>
+    #pdf-viewer {
+      border: 1px solid black;
+      margin-top: 10px;
+      max-width: 20%; /* 使畫布寬度適應不同顯示裝置 */
+    }
+    #nav-buttons {
+      margin-top: 10px;
+    }
+  </style>
+
+  <style>
+    .pdf-button {
+    padding: 5px 10px;
+    font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-flip">翻頁書 PDF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab-high">高畫質版 PDF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-mobile">手機版 PDF</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body" id="content-high">
+        <br>
+            <iframe src="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf#zoom=50" width="80%" height="600px"></iframe>
+        </div>
+        <div class="card-body" id="content-flip" style="display: none;">
+        <script>//匹低ㄝ府
+          document.addEventListener("DOMContentLoaded", function() {
+              const url = "/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf"; 
+              let pdfDoc = null,
+                  pageNum = 1,
+                  scale = 0.35,
+                  canvas = document.getElementById('pdf-viewer-'),
+                  ctx = canvas.getContext('2d'),
+                  pageNumDisplay = document.getElementById('page-num-'),
+                  pageCountDisplay = document.getElementById('page-count-');pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
+                  pdfDoc = pdfDoc_;
+                  pageCountDisplay.textContent = pdfDoc_.numPages;
+                  renderPage(pageNum);
+              });
+              function renderPage(num) {
+                  pdfDoc.getPage(num).then((page) => {
+                      let viewport = page.getViewport({ scale: scale });
+                      canvas.height = viewport.height;
+                      canvas.width = viewport.width;
+                      let renderContext = {
+                          canvasContext: ctx,
+                          viewport: viewport,
+                      };
+                      page.render(renderContext).promise.then(() => {
+                          pageNumDisplay.textContent = num;
+                      });
+                  });
+              }
+            // 按下八藤
+              document.getElementById('prev-page-').addEventListener('click', () => {
+                  if (pageNum <= 1) {
+                      return;
+                  }
+                  pageNum--;
+                  renderPage(pageNum);
+              });
+              document.getElementById('next-page-').addEventListener('click', () => {
+                  if (pageNum >= pdfDoc.numPages) {
+                      return;
+                  }
+                  pageNum++;
+                  renderPage(pageNum);
+              });
+              document.getElementById('sizez-').addEventListener('click', () => {
+                if (scale == 0.35) {
+                    scale=0.5;
+                }
+                else if(scale==0.5){
+                  scale=1;
+                }
+                else{
+                  scale=0.35;
+                }
+                renderPage(pageNum);
+            });
+            canvas.addEventListener('click', (e) => {
+              const rect = canvas.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              if (x < canvas.width / 2) {
+                  // 點擊左半部分
+                  if (pageNum > 1) {
+                      pageNum--;
+                      renderPage(pageNum);
+                  }
+              } else {
+                  // 點擊右半部分
+                  if (pageNum < pdfDoc.numPages) {
+                      pageNum++;
+                      renderPage(pageNum);
+                  }
+              }
+          });
+          });
+        </script>
+        <canvas id="pdf-viewer-"></canvas>
+        <div id="nav-buttons-">
+          <button id="prev-page-" class="pdf-button">上一頁</button>
+          <button id="next-page-" class="pdf-button">下一頁</button>
+          <button id="sizez-" class="pdf-button">縮放</button>
+          <span>Page: <span id="page-num-"></span> / <span id="page-count-"></span></span>
+        </div>
+        <div id="left-nav-" class="nav-area left-nav"></div>
+        <div id="right-nav-" class="nav-area right-nav"></div>
+        </div>
+        <div class="card-body" id="content-mobile" style="display: none;">
+            <a href="/2023/05/31/資訊研究社-社長/資訊研究社-社長.pdf#zoom=50" width="80%" height="600px" target="_blank">手機版點此查看 PDF</a>
+        </div>
+    </div>
+    
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('tab-high').addEventListener('click', function() {
+                setActiveTab('content-high');
+            });
+
+            document.getElementById('tab-flip').addEventListener('click', function() {
+                setActiveTab('content-flip');
+            });
+
+            document.getElementById('tab-mobile').addEventListener('click', function() {
+                setActiveTab('content-mobile');
+            });
+
+            function setActiveTab(activeContentId) {
+                // 移除所有選項的活躍狀態
+                document.querySelectorAll('.nav-link').forEach(function(link) {
+                    link.classList.remove('active');
+                });
+
+                // 隱藏所有內容
+                document.querySelectorAll('.card-body').forEach(function(content) {
+                    content.style.display = 'none';
+                });
+
+                // 設置活躍狀態和顯示相應內容
+                document.querySelector('.nav-link[id="tab-' + activeContentId.split('-')[1] + '"]').classList.add('active');
+                document.getElementById(activeContentId).style.display = 'block';
+            }
+        });
+</script>
+</body>
 
 
 
